@@ -1,4 +1,4 @@
-import './App.css'
+import './Aplicación.css'
 import { useState, useEffect } from 'react'
 import { db } from './firebase'
 import { collection, getDocs } from 'firebase/firestore'

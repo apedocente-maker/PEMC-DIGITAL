@@ -5,6 +5,7 @@ import { collection, getDocs } from 'firebase/firestore'
 function App() {
   const [showNotification, setShowNotification] = useState(false)
     const [escuelas, setEscuelas] = useState([])
+  const [escuelaSeleccionada, setEscuelaSeleccionada] = useState(null)
   const [cargandoEscuelas, setCargandoEscuelas] = useState(true) 
   useEffect(() => {
     const cargarEscuelas = async () => {
@@ -30,6 +31,9 @@ function App() {
     setShowNotification(true)
     setTimeout(() => setShowNotification(false), 4000)
   }
+  const handleSeleccionarEscuela = (escuela) => {
+  setEscuelaSeleccionada(escuela)
+}
 
   const handleConocerProceso = () => {
     const procesSection = document.getElementById('etapas')
@@ -76,17 +80,17 @@ function App() {
             <div className="welcome-card">
               {/* Encabezado Principal */}
               <div className="welcome-header">
-                <h1 className="main-title">PEMC DIGITAL</h1>
+                <h1 className="main-title">PEMC DIGITAL | Programa Escolar de Mejora Continua</h1>
                 <h2 className="main-subtitle">Programa Escolar de Mejora Continua</h2>
               </div>
 
               {/* Descripción Detallada */}
               <div className="welcome-description">
                 <p className="description-main">
-                  Una herramienta digital para construir, implementar, dar seguimiento y evaluar la mejora continua de la escuela.
+                  Una herramienta digital para diseñar, implementar, dar seguimiento y evaluar el Programa Escolar de Mejora Continua (PEMC).
                 </p>
                 <p className="description-detail">
-                  Guía paso a paso para que las escuelas integren su diagnóstico, problemáticas prioritarias, objetivos, metas, acciones, seguimiento y evaluación.
+                  Guía paso a paso para integrar el diagnóstico escolar, identificar problemáticas prioritarias, establecer objetivos y metas, diseñar acciones, dar seguimiento y evaluar los resultados del PEMC.
                 </p>
               </div>
 
@@ -96,37 +100,37 @@ function App() {
                 <div className="etapas-flow">
                   <div className="etapa">
                     <div className="etapa-number">1</div>
-                    <p className="etapa-nombre">Diagnóstico</p>
+                    <p className="etapa-nombre"<p className="etapa-nombre">Diagnóstico integral</p>></p>
                   </div>
                   <div className="etapa-arrow">↓</div>
                   
                   <div className="etapa">
                     <div className="etapa-number">2</div>
-                    <p className="etapa-nombre">Problemática</p>
+                    <p className="etapa-nombre">Identificación de problemáticas</p>
                   </div>
                   <div className="etapa-arrow">↓</div>
                   
                   <div className="etapa">
                     <div className="etapa-number">3</div>
-                    <p className="etapa-nombre">Priorización</p>
+                   <p className="etapa-nombre">Priorización de necesidades</p> 
                   </div>
                   <div className="etapa-arrow">↓</div>
                   
                   <div className="etapa">
                     <div className="etapa-number">4</div>
-                    <p className="etapa-nombre">Objetivos</p>
+                    <p className="etapa-nombre">Objetivos y propósitos</p>
                   </div>
                   <div className="etapa-arrow">↓</div>
                   
                   <div className="etapa">
                     <div className="etapa-number">5</div>
-                    <p className="etapa-nombre">Metas</p>
+                    <p className="etapa-nombre">Metas e indicadores</p>
                   </div>
                   <div className="etapa-arrow">↓</div>
                   
                   <div className="etapa">
-                    <div className="etapa-number">6</div>
-                    <p className="etapa-nombre">Acciones</p>
+                   <div className="etapa-number">6</div>
+                    <p className="etapa-nombre">Acciones de mejora</p>
                   </div>
                   <div className="etapa-arrow">↓</div>
                   

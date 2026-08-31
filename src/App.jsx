@@ -1,9 +1,31 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { db } from './firebase'
+import { collection, getDocs } from 'firebase/firestore'
 function App() {
   const [showNotification, setShowNotification] = useState(false)
+    const [escuelas, setEscuelas] = useState([])
+  const [cargandoEscuelas, setCargandoEscuelas] = useState(true) 
+  useEffect(() => {
+    const cargarEscuelas = async () => {
+      try {
+        const consulta = await getDocs(collection(db, 'escuelas'))
 
+        const datos = consulta.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setEscuelas(datos)
+      } catch (error) {
+        console.error('Error al cargar escuelas:', error)
+      } finally {
+        setCargandoEscuelas(false)
+      }
+    }
+
+    cargarEscuelas()
+  }, []) 
   const handleComenzarPEMC = () => {
     setShowNotification(true)
     setTimeout(() => setShowNotification(false), 4000)

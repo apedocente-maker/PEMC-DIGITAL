@@ -28,9 +28,12 @@ function App() {
     cargarEscuelas()
   }, []) 
   const handleComenzarPEMC = () => {
-    setShowNotification(true)
-    setTimeout(() => setShowNotification(false), 4000)
+  const etapasSection = document.getElementById('etapas')
+
+  if (etapasSection) {
+    etapasSection.scrollIntoView({ behavior: 'smooth' })
   }
+} 
   const handleSeleccionarEscuela = (escuela) => {
   setEscuelaSeleccionada(escuela)
 }

@@ -3,7 +3,7 @@ name: Publicar PEMC-DIGITAL
 on:
   push:
     branches:
-  - main   
+          - main   
 
 permissions:
   contents: read

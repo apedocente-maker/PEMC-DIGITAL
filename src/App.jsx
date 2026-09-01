@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-import { db } from './firebase'
+import { db, auth } from './firebase'
 import { collection, getDocs } from 'firebase/firestore'
 function App() {
   const [showNotification, setShowNotification] = useState(false)

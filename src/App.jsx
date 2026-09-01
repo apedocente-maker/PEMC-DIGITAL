@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import { db, auth } from './firebase'
 import { collection, getDocs } from 'firebase/firestore'
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
 function App() {
   const [showNotification, setShowNotification] = useState(false)
     const [escuelas, setEscuelas] = useState([])

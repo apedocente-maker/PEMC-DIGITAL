@@ -103,7 +103,7 @@ function App() {
                 <div className="etapas-flow">
                   <div className="etapa">
                     <div className="etapa-number">1</div>
-                    <p className="etapa-nombre"<p className="etapa-nombre">Diagnóstico integral</p>></p>
+                    <p className="etapa-nombre">Diagnóstico integral</p>
                   </div>
                   <div className="etapa-arrow">↓</div>
                   

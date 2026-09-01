@@ -156,7 +156,38 @@ function App() {
                 </div>
               </section>
 
-              {/* Botones de Acción */}
+             {/* Selección de Escuela */}
+<div className="escuela-selector">
+  <h2>Datos de la Escuela</h2>
+
+  {cargandoEscuelas ? (
+    <p>Cargando escuelas...</p>
+  ) : escuelas.length === 0 ? (
+    <p>No hay escuelas registradas.</p>
+  ) : (
+    <div className="escuelas-lista">
+      {escuelas.map((escuela) => (
+        <button
+          key={escuela.id}
+          className="escuela-item"
+          onClick={() => handleSeleccionarEscuela(escuela)}
+        >
+          <strong>{escuela.nombre}</strong>
+          <span>CCT: {escuela.CCT}</span>
+          <span>Zona Escolar: {escuela.zona_escolar}</span>
+        </button>
+      ))}
+    </div>
+  )}
+
+  {escuelaSeleccionada && (
+    <div className="escuela-seleccionada">
+      <strong>Escuela seleccionada:</strong>
+      <p>{escuelaSeleccionada.nombre}</p>
+      <span>CCT: {escuelaSeleccionada.CCT}</span>
+    </div>
+  )}
+</div> {/* Botones de Acción */}
               <div className="welcome-actions">
                 <button 
                   className="btn-primary"

@@ -43,6 +43,20 @@ useEffect(() => {
 const [contrasena, setContrasena] = useState('')
 const [errorLogin, setErrorLogin] = useState('')
 const [iniciandoSesion, setIniciandoSesion] = useState(false)
+  const handleLogin = async (e) => {
+  e.preventDefault()
+  setErrorLogin('')
+  setIniciandoSesion(true)
+
+  try {
+    await signInWithEmailAndPassword(auth, correo, contrasena)
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error)
+    setErrorLogin('Correo o contraseña incorrectos.')
+  } finally {
+    setIniciandoSesion(false)
+  }
+}
   const handleComenzarPEMC = () => {
   const etapasSection = document.getElementById('etapas')
 

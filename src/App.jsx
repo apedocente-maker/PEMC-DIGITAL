@@ -48,14 +48,14 @@ const [iniciandoSesion, setIniciandoSesion] = useState(false)
   setErrorLogin('')
   setIniciandoSesion(true)
 
-  try {
-    await signInWithEmailAndPassword(auth, correo, contrasena)
-  } catch (error) {
-    console.error('Error al iniciar sesión:', error)
-    setErrorLogin('Correo o contraseña incorrectos.')
-  } finally {
-    setIniciandoSesion(false)
-  }
+    try {
+      await signInWithEmailAndPassword(auth, correo, contrasena)
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error)
+      setErrorLogin(`Error de Firebase: ${error.code}`)
+    } finally {
+      setIniciandoSesion(false)
+    }     
 }
   const handleComenzarPEMC = () => {
   const etapasSection = document.getElementById('etapas')

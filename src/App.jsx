@@ -80,7 +80,54 @@ const [iniciandoSesion, setIniciandoSesion] = useState(false)
 }
 
 if (!usuario) {
-  return <div className="app-container">Inicio de sesión</div>
+  return (
+  <div className="app-container">
+    <main className="main-content">
+      <section className="welcome-section">
+        <div className="welcome-container">
+          <div className="welcome-card">
+            <div className="welcome-header">
+              <h1 className="main-title">PEMC DIGITAL</h1>
+              <h2 className="main-subtitle">Inicio de sesión</h2>
+            </div>
+
+            <form onSubmit={handleLogin}>
+              <input
+                type="email"
+                placeholder="Correo electrónico"
+                value={correo}
+                onChange={(e) => setCorreo(e.target.value)}
+                required
+              />
+
+              <input
+                type="password"
+                placeholder="Contraseña"
+                value={contrasena}
+                onChange={(e) => setContrasena(e.target.value)}
+                required
+              />
+
+              {errorLogin && (
+                <p>{errorLogin}</p>
+              )}
+
+              <button
+                type="submit"
+                className="btn-primary"
+                disabled={iniciandoSesion}
+              >
+                {iniciandoSesion
+                  ? 'INICIANDO SESIÓN...'
+                  : 'INICIAR SESIÓN'}
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+)
 }
   return (
     <div className="app-container">

@@ -257,7 +257,7 @@ if (!usuario) {
           onClick={() => handleSeleccionarEscuela(escuela)}
         >
           <strong>{escuela.nombre}</strong>
-          <span>CCT: {escuela.CCT}</span>
+          <span>CCT: {escuela.cct}</span>
           <span>Zona Escolar: {escuela.zona_escolar}</span>
         </button>
       ))}
@@ -268,7 +268,7 @@ if (!usuario) {
     <div className="escuela-seleccionada">
       <strong>Escuela seleccionada:</strong>
       <p>{escuelaSeleccionada.nombre}</p>
-      <span>CCT: {escuelaSeleccionada.CCT}</span>
+      <span>CCT: {escuelaSeleccionada.cct}</span>
     </div>
   )}
 </div> {/* Botones de Acción */}

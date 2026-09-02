@@ -39,6 +39,10 @@ useEffect(() => {
 
   return () => cancelarEscucha()
 }, [])
+  const [correo, setCorreo] = useState('')
+const [contrasena, setContrasena] = useState('')
+const [errorLogin, setErrorLogin] = useState('')
+const [iniciandoSesion, setIniciandoSesion] = useState(false)
   const handleComenzarPEMC = () => {
   const etapasSection = document.getElementById('etapas')
 

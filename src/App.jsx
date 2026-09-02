@@ -48,7 +48,7 @@ const [iniciandoSesion, setIniciandoSesion] = useState(false)
   setErrorLogin('')
   setIniciandoSesion(true)
 
-    try {
+    setErrorLogin(`Error de Firebase: ${error.code}`)
       await signInWithEmailAndPassword(auth, correo, contrasena)
     } catch (error) {
       console.error('Error al iniciar sesión:', error)

@@ -7,27 +7,38 @@ function App() {
   const [showNotification, setShowNotification] = useState(false)
     const [escuelas, setEscuelas] = useState([])
   const [escuelaSeleccionada, setEscuelaSeleccionada] = useState(null)
+  const [usuario, setUsuario] = useState(null)
+  const [cargandoUsuario, setCargandoUsuario] = useState(true)
   const [cargandoEscuelas, setCargandoEscuelas] = useState(true) 
-  useEffect(() => {
-    const cargarEscuelas = async () => {
-      try {
-        const consulta = await getDocs(collection(db, 'escuelas'))
+useEffect(() => {
+  const cancelarEscucha = onAuthStateChanged(auth, async (usuarioActual) => {
+    setUsuario(usuarioActual)
+    setCargandoUsuario(false)
 
-        const datos = consulta.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }))
-
-        setEscuelas(datos)
-      } catch (error) {
-        console.error('Error al cargar escuelas:', error)
-      } finally {
-        setCargandoEscuelas(false)
-      }
+    if (!usuarioActual) {
+      setEscuelas([])
+      setCargandoEscuelas(false)
+      return
     }
 
-    cargarEscuelas()
-  }, []) 
+    try {
+      const consulta = await getDocs(collection(db, 'escuelas'))
+
+      const datos = consulta.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+
+      setEscuelas(datos)
+    } catch (error) {
+      console.error('Error al cargar escuelas:', error)
+    } finally {
+      setCargandoEscuelas(false)
+    }
+  })
+
+  return () => cancelarEscucha()
+}, [])
   const handleComenzarPEMC = () => {
   const etapasSection = document.getElementById('etapas')
 

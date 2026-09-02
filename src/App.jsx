@@ -75,6 +75,13 @@ const [iniciandoSesion, setIniciandoSesion] = useState(false)
     }
   }
 
+  if (cargandoUsuario) {
+  return <div className="app-container">Verificando acceso...</div>
+}
+
+if (!usuario) {
+  return <div className="app-container">Inicio de sesión</div>
+}
   return (
     <div className="app-container">
       {/* Notification */}

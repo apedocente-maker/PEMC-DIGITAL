@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyAXdxecrCgI9Iyl2fd-Qn4h99WClSc19Ro",
+  apiKey: "AIzaSyB2ziEUnCRu0s1S_JZzlJjKHulX6bC-9eA",
   authDomain: "pemc-digital.firebaseapp.com",
   projectId: "pemc-digital",
   storageBucket: "pemc-digital.firebasestorage.app",

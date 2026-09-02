@@ -329,3 +329,27 @@ body {
     font-size: 1.3rem;
   }
 }
+/* Formato de las escuelas */
+.escuelas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.escuela-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.escuela-item strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.escuela-item span {
+  display: block;
+}
